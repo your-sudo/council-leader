@@ -17,15 +17,16 @@ use Illuminate\Support\Facades\Route;
 //     return 'welcome';
 // });
 
-Route::get('/', 'PagesController@index' );
+Route::get('/', [App\Http\Controllers\PagesController::class, 'index']);
+
 Route::get('/about', function () {
     return view("pages.about");
 });
 Route::get('/index', function () {
     return view("pages.index");
-});
+}) -> name('login') -> middleware('autentikasi');
 
 Route::get('/pilih', function () {
     return view("pages.dashboard");
-});
+})->middleware('autentikasi')->name('pilih');
 
