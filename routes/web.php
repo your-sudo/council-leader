@@ -22,9 +22,16 @@ Route::get('/', [App\Http\Controllers\PagesController::class, 'index']);
 Route::get('/about', function () {
     return view("pages.about");
 });
-Route::get('/index', function () {
-    return view("pages.index");
-}) -> name('login') -> middleware('autentikasi');
+Route::get('/login', [loginController::class, 'index'])->name('login');
+Route::post('/login', [loginController::class, 'login']);
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('pages.dashboard');
+    })->name('dashboard');
+    Route::post('/logout', [loginController::class, 'logout'])->name('logout');
+});
+
 
 Route::get('/pilih', function () {
     return view("pages.dashboard");

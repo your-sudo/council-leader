@@ -20,7 +20,7 @@
       <h2 class="title">Sign in</h2>
       <div class="input-field">
        <i class="fas fa-user"></i>
-       <input type="text" placeholder="Username" method="get" />
+       <input type="text" placeholder="NIS" method="get" />
       </div>
       <div class="input-field">
        <i class="fas fa-lock"></i>
