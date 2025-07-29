@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\loginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,13 +17,14 @@ use Illuminate\Support\Facades\Route;
 //     return 'welcome';
 // });
 
-Route::get('/', [App\Http\Controllers\PagesController::class, 'index']);
+Route::get('/', [loginController::class, 'showloginform'])->name('login');
 
 Route::get('/about', function () {
     return view("pages.about");
 });
-Route::get('/login', [loginController::class, 'index'])->name('login');
-Route::post('/login', [loginController::class, 'login']);
+Route::get('/login', [loginController::class, 'showloginform'])->name('login');
+
+Route::post('/login', [loginController::class, 'function'])->name('login.post');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
@@ -33,7 +34,6 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/pilih', function () {
-    return view("pages.dashboard");
-})->middleware('autentikasi')->name('pilih');
+
+
 

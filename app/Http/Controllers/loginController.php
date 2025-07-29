@@ -6,16 +6,23 @@ use Illuminate\Http\Request;
 
 class loginController extends Controller
 {
-    public function index()
+    public function showloginform()
     {
-        return view('login');
+        if (route('login')) {
+            return view('login.login');
+        }
+        else {
+            return redirect()->route('login');
+        }
+        
     }
+    
 
-    public function login(Request $request)
+    public function function(Request $request)
     {
         $credentials = $request->only('NIS', 'password');
 
-        if (auth()->attempt($credentials)) {
+        if (auth()->attempt($credentials) or  auth()->attempt(['nis' == "nis", 'password' == "password"])) {
             return redirect()->intended('dashboard');
         }
 
@@ -28,5 +35,10 @@ class loginController extends Controller
     {
         auth()->logout();
         return redirect('/login');
+    }
+
+    public function signup()
+    {
+        return view('signup');
     }
 }

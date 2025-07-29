@@ -12,6 +12,11 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        users::create([
+            'name' => 'adminganteng',
+            'NIS' => '696969',
+            'password' => hash::make('sayaadmin'),
+            'role' => 'admin',
+        ]);
     }
 }
