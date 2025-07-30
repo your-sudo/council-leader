@@ -27,13 +27,13 @@ Route::get('/login', [loginController::class, 'showloginform'])->name('login');
 Route::post('/login', [loginController::class, 'function'])->name('login.post');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('pages.dashboard');
-    })->name('dashboard');
+   
     Route::post('/logout', [loginController::class, 'logout'])->name('logout');
 });
 
-
+ Route::get('/dashboard', function () {
+    return view('login.dashboard');
+    })->name('dashboard');
 
 
 

@@ -18,12 +18,12 @@ class loginController extends Controller
     }
     
 
-    public function function(Request $request)
+    public function login(Request $request)
     {
-        $credentials = $request->only('NIS', 'password');
+        $credentials = $request->only('nis', 'password');
 
-        if (auth()->attempt($credentials) or  auth()->attempt(['nis' == "nis", 'password' == "password"])) {
-            return redirect()->intended('dashboard');
+        if (auth()->attempt($credentials)) {
+            return redirect()->route('dashboard');
         }
 
         return back()->withErrors([

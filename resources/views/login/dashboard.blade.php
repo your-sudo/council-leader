@@ -143,24 +143,111 @@
   </div>
 
   <!-- Calon Ketua -->
-  <section class="fade-in" id="ketua">
-    <h2>Calon Ketua OSIS</h2>
-    <div class="cards">
-      <div class="card"><div class="img" style="background-image:url('https://via.placeholder.com/300?text=Ketua+1');"></div><div class="card-body"><div class="card-title">Ketua 1</div><button class="btn-toggle">Lihat Visi/Misi & Proker</button><div class="details"><p><strong>Visi:</strong> Tingkatkan kreativitas siswa.</p><p><strong>Misi:</strong> Lomba seni tahunan.</p><p><strong>Proker:</strong> Workshop seni & budaya.</p></div><button class="btn-vote">Pilih</button></div></div>
-      <div class="card"><div class="img" style="background-image:url('https://via.placeholder.com/300?text=Ketua+2');"></div><div class="card-body"><div class="card-title">Ketua 2</div><button class="btn-toggle">Lihat Visi/Misi & Proker</button><div class="details"><p><strong>Visi:</strong> Sosial & kepedulian.</p><p><strong>Misi:</strong> Baksos rutin.</p><p><strong>Proker:</strong> Program bakti sosial.</p></div><button class="btn-vote">Pilih</button></div></div>
-      <div class="card"><div class="img" style="background-image:url('https://via.placeholder.com/300?text=Ketua+3');"></div><div class="card-body"><div class="card-title">Ketua 3</div><button class="btn-toggle">Lihat Visi/Misi & Proker</button><div class="details"><p><strong>Visi:</strong> Inovasi teknologi.</p><p><strong>Misi:</strong> Klub robotik.</p><p><strong>Proker:</strong> Kompetisi robot antar kelas.</p></div><button class="btn-vote">Pilih</button></div></div>
-    </div>
-  </section>
+<section class="fade-in" id="ketua">
+  <h2>Calon Ketua OSIS</h2>
+  <div class="cards">
 
-  <!-- Calon Wakil -->
-  <section class="fade-in" id="wakil">
-    <h2>Calon Wakil Ketua OSIS</h2>
-    <div class="cards">
-      <div class="card"><div class="img" style="background-image:url('https://via.placeholder.com/300?text=Wakil+1');"></div><div class="card-body"><div class="card-title">Wakil 1</div><button class="btn-toggle">Lihat Visi/Misi & Proker</button><div class="details"><p><strong>Visi:</strong> Mentoring siswa kuat.</p><p><strong>Misi:</strong> Peer mentoring.</p><p><strong>Proker:</strong> Sesi bimbingan belajar.</p></div><button class="btn-vote">Pilih</button></div></div>
-      <div class="card"><div class="img" style="background-image:url('https://via.placeholder.com/300?text=Wakil+2');"></div><div class="card-body"><div class="card-title">Wakil 2</div><button class="btn-toggle">Lihat Visi/Misi & Proker</button><div class="details"><p><strong>Visi:</strong> Kepemimpinan siswa.</p><p><strong>Misi:</strong> Pelatihan rutin.</p><p><strong>Proker:</strong> Diskusi siswa.</p></div><button class="btn-vote">Pilih</button></div></div>
-      <div class="card"><div class="img" style="background-image:url('https://via.placeholder.com/300?text=Wakil+3');"></div><div class="card-body"><div class="card-title">Wakil 3</div><button class="btn-toggle">Lihat Visi/Misi & Proker</button><div class="details"><p><strong>Visi:</strong> Literasi sekolah.</p><p><strong>Misi:</strong> Klub jurnalistik.</p><p><strong>Proker:</strong> Pelatihan menulis & jurnal.</p></div><button class="btn-vote">Pilih</button></div></div>
+    <!-- Ketua 1 -->
+    <div class="card">
+      <div class="img" style="background-image: url('{{ asset('assets/img/kandidat1.png') }}');"></div>
+      <div class="card-body">
+        <div class="card-title">Ketua 1</div>
+        <button class="btn-toggle">Lihat Visi/Misi & Proker</button>
+        <div class="details">
+          <p><strong>Visi:</strong> Tingkatkan kreativitas siswa.</p>
+          <p><strong>Misi:</strong> Lomba seni tahunan.</p>
+          <p><strong>Proker:</strong> Workshop seni & budaya.</p>
+        </div>
+        <button class="btn-vote">Pilih</button>
+      </div>
     </div>
-  </section>
+
+    <!-- Ketua 2 -->
+    <div class="card">
+      <div class="img" style="background-image: url('{{ asset('assets/img/kandidat1.png') }}')"></div>
+      <div class="card-body">
+        <div class="card-title">Ketua 2</div>
+        <button class="btn-toggle">Lihat Visi/Misi & Proker</button>
+        <div class="details">
+          <p><strong>Visi:</strong> Sosial & kepedulian.</p>
+          <p><strong>Misi:</strong> Baksos rutin.</p>
+          <p><strong>Proker:</strong> Program bakti sosial.</p>
+        </div>
+        <button class="btn-vote">Pilih</button>
+      </div>
+    </div>
+
+    <!-- Ketua 3 -->
+    <div class="card">
+      <div class="img" style="background-image: url('{{ asset('assets/img/kandidat3.jpg') }}');"></div>
+      <div class="card-body">
+        <div class="card-title">Ketua 3</div>
+        <button class="btn-toggle">Lihat Visi/Misi & Proker</button>
+        <div class="details">
+          <p><strong>Visi:</strong> Inovasi teknologi.</p>
+          <p><strong>Misi:</strong> Klub robotik.</p>
+          <p><strong>Proker:</strong> Kompetisi robot antar kelas.</p>
+        </div>
+        <button class="btn-vote">Pilih</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Calon Wakil -->
+<section class="fade-in" id="wakil">
+  <h2>Calon Wakil Ketua OSIS</h2>
+  <div class="cards">
+
+    <!-- Wakil 1 -->
+    <div class="card">
+      <div class="img" style="background-image: url('{{ asset('assets/img/wakil1.jpg') }}');"></div>
+      <div class="card-body">
+        <div class="card-title">Wakil 1</div>
+        <button class="btn-toggle">Lihat Visi/Misi & Proker</button>
+        <div class="details">
+          <p><strong>Visi:</strong> Mentoring siswa kuat.</p>
+          <p><strong>Misi:</strong> Peer mentoring.</p>
+          <p><strong>Proker:</strong> Sesi bimbingan belajar.</p>
+        </div>
+        <button class="btn-vote">Pilih</button>
+      </div>
+    </div>
+
+    <!-- Wakil 2 -->
+    <div class="card">
+      <div class="img" style="background-image: url('{{ asset('assets/img/wakil2.jpg') }}');"></div>
+      <div class="card-body">
+        <div class="card-title">Wakil 2</div>
+        <button class="btn-toggle">Lihat Visi/Misi & Proker</button>
+        <div class="details">
+          <p><strong>Visi:</strong> Kepemimpinan siswa.</p>
+          <p><strong>Misi:</strong> Pelatihan rutin.</p>
+          <p><strong>Proker:</strong> Diskusi siswa.</p>
+        </div>
+        <button class="btn-vote">Pilih</button>
+      </div>
+    </div>
+
+    <!-- Wakil 3 -->
+    <div class="card">
+      <div class="img" style="background-image: url('{{ asset('assets/img/wakil3.jpg') }}');"></div>
+      <div class="card-body">
+        <div class="card-title">Wakil 3</div>
+        <button class="btn-toggle">Lihat Visi/Misi & Proker</button>
+        <div class="details">
+          <p><strong>Visi:</strong> Literasi sekolah.</p>
+          <p><strong>Misi:</strong> Klub jurnalistik.</p>
+          <p><strong>Proker:</strong> Pelatihan menulis & jurnal.</p>
+        </div>
+        <button class="btn-vote">Pilih</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
 </main>
 
