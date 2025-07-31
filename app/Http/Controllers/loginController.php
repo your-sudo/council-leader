@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class loginController extends Controller
 {
+    
     public function showloginform()
     {
         if (route('login')) {
@@ -20,6 +21,10 @@ class loginController extends Controller
 
     public function login(Request $request)
     {
+        $dbuser = users->id;
+        $dbusernis = $dbuser->nis;
+        $dbuserpassword = $dbuser->password;
+
         $credentials = $request->only('nis', 'password');
 
         if (auth()->attempt($credentials)) {

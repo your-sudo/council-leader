@@ -1,0 +1,6 @@
+pilkosis: 
+  build :
+    context : .
+    dockerfile: Dockerfile
+    volume: 
+    
