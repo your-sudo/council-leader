@@ -31,14 +31,10 @@ COPY . /var/www
 RUN chown -R www-data:www-data /var/www/storage \
     /var/www/bootstrap/cache
 
-# Generate key aplikasi Laravel jika belum ada (hanya untuk development/lokal)
-# Untuk production, pastikan APP_KEY sudah ada di .env
 RUN php artisan key:generate || true
 
-# Jalankan Composer install untuk menginstal dependensi PHP
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
-# Expose port yang akan digunakan oleh Nginx (default 80)
 EXPOSE 8000
 
 CMD ["php", "artisan", "serve", "--host", "0.0.0.0", "--port", "8000"]

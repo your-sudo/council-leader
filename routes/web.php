@@ -1,39 +1,29 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\loginController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\Auth\loginController;
 
-// Route::get('/', function () {
-//     return 'welcome';
-// });
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [loginController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [loginController::class, 'login']);
+    Route::post('/register', [loginController::class, 'register'])->name('register');
+});
 
-Route::get('/', [loginController::class, 'showloginform'])->name('login');
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('login.dashboard'); 
+    })->name('dashboard');
+
+    Route::post('/logout', [loginController::class, 'logout'])->name('logout');
+});
+
+Route::get('/', function () {
+    if (auth()->check()) {
+        return redirect()->route('dashboard');
+    }
+    return redirect()->route('login');
+});
 
 Route::get('/about', function () {
     return view("pages.about");
 });
-Route::get('/login', [loginController::class, 'showloginform'])->name('login');
-
-Route::post('/login', [loginController::class, 'function'])->name('login.post');
-
-Route::middleware('auth')->group(function () {
-   
-    Route::post('/logout', [loginController::class, 'logout'])->name('logout');
-});
-
- Route::get('/dashboard', function () {
-    return view('login.dashboard');
-    })->name('dashboard');
-
-
-

@@ -159,6 +159,7 @@
           <p><strong>Proker:</strong> Workshop seni & budaya.</p>
         </div>
         <button class="btn-vote">Pilih</button>
+        
       </div>
     </div>
 

@@ -14,11 +14,11 @@ return new class extends Migration
         schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->integer('NIS')->unique();
+            $table->integer('nis')->unique();
             $table->string('password');
             $table->enum ('role', ['admin', 'user'])->default('user');
             $table->string('nama_ibu');
-            $table->date('created_at')->nullable();
+            $table->timestamps();
 
         });
     }
