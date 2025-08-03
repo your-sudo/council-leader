@@ -14,16 +14,21 @@ class LoginController extends Controller
     {
         return view('login.login');
     }
+        public function showForgotPasswordForm()
+    {
+        return view('login.resetpass');
+    }
+
 
     public function register(Request $request)
     {
         $request->validate([
             'nis' => 'required|string',
             'nama_ibu' => 'required|string',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|string|min:6|confirmed',
         ]);
 
-        $user = User::where('NIS', $request->nis)->first();
+        $user = User::where('nis', $request->nis)->first();
 
         if (!$user) {
             return back()->withErrors(['nis' => 'NIS tidak terdaftar.'])->withInput();
@@ -39,7 +44,6 @@ class LoginController extends Controller
 
         $user->password = Hash::make($request->password);
         $user->save();
-
         Auth::login($user);
         return redirect('/dashboard');
     }
@@ -53,6 +57,9 @@ class LoginController extends Controller
 
         if (Auth::attempt(['NIS' => $credentials['nis'], 'password' => $credentials['password']])) {
             $request->session()->regenerate();
+            if (Auth::attempt(['role' => 'admin'])) {
+                return redirect()->intended('dashboardadmin');
+            }
             return redirect()->intended('dashboard');
         }
 

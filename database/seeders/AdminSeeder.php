@@ -22,5 +22,15 @@ class AdminSeeder extends Seeder
             'role' => 'admin',
             'nama_ibu' => 'jarko',
         ]);
+
+        User::create([
+
+            'nama' => 'adminjawa',
+            'nis' => '123456',
+            'password' => null,
+            'role' => 'user',
+            'nama_ibu' => 'jarko',
+        ]);
+
     }
 }

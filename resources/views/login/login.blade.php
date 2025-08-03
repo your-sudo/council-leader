@@ -21,6 +21,11 @@
           <input type="text" placeholder="Nama ibu" name="nama_ibu" required />
           <input type="password" placeholder="Password" name="password" required />
           <input type="password" placeholder="Konfirmasi Password" name="password_confirmation" required />
+          @error('nis') <span style="color: red;">{{ $message }}</span> @enderror
+
+@error('nama_ibu') <span style="color: red;">{{ $message }}</span> @enderror
+
+@error('password') <span style="color: red;">{{ $message }}</span> @enderror
           <button type="submit">Buat Akun</button>
         </form>
       </div>
@@ -31,7 +36,7 @@
           <span>Masukan NIS Dan Password</span>
           <input type="text" placeholder="NIS" name="nis" value="{{ old('nis') }}" required autofocus />
           <input type="password" placeholder="Password" name="password" required />
-          <a href="#">Lupa Password?</a>
+          <a href="lupapassword">Lupa Password?</a>
           <button type="submit">Masuk</button>
           @error('nis')
             <span style="color: red;">{{ $message }}</span>

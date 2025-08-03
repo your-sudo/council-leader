@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->integer('nis')->unique();
-            $table->string('password');
+            $table->string ('password')->nullable();
             $table->enum ('role', ['admin', 'user'])->default('user');
             $table->string('nama_ibu');
             $table->timestamps();
