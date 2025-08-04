@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\loginController;
 use App\Http\Controllers\Auth\lupapassword;
+use App\Http\Controllers\voting\votingController;
 
 
 
@@ -16,9 +17,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('login.dashboard'); 
-    })->name('dashboard');
+    Route::get('/dashboard',[votingController::class, 'kandidat'])->name('dashboard');
     Route::get('/dashboardadmin', function () {
         return view('adminPage.dashboardAdmin'); 
     })->name('dashboardadmin');

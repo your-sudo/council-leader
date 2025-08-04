@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->integer('NIS')->unique();
-            $table->foreignID('caksis_id')->constrained('kandidat')->onDelete('cascade');
-            $table->foreignID('cawaksis_id')->constraioned('kandidat')->onDelete('cascade');
+            $table->foreignID('caksis_id')->constrained('kandidats')->onDelete('cascade');
+            $table->foreignID('cawaksis_id')->constrained('kandidats')->onDelete('cascade');
             $table->timestamps();
         });
     }
