@@ -1,66 +1,34 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+!-- Header Banner -->
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<img src="https://www.google.com/search?q=https://i.pinimg.com/originals/3b/84/35/3b8435555351857f49354735c1790e19.gif" alt="Anime Scenery GIF" width="800"/>
 </p>
 
-## About Laravel
+<!-- Introduction with Typing Animation -->
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<div align="center">
+<h1>Halo smenza disini, ada smenza jangan lari 👋</h1>
+<a href="https://git.io/typing-svg">
+<img src="https://www.google.com/search?q=https://readme-typing-svg.demolab.com%3Ffont%3DFira%2BCode%26weight%3D600%26size%3D25%26pause%3D1000%26color%3D484361%26center%3Dtrue%26vCenter%3Dtrue%26width%3D435%26lines%3DA%2BPassionate%2BDeveloper%3BTurning%2BIdeas%2Binto%2BReality%3BExploring%2Bthe%2BWorld%2Bof%2BCode%3BJust%2Blike%2Ba%2Bsh%C5%8Dnen%2Bprotagonist!" alt="Typing SVG" />
+</a>
+</div>
+⚔️ 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<p align="center">
+Ini adalah website untuk memudahkan pemilihan ketua osis yang berdasar online, sehingga siswa kelas 12 yang sedang pkl tidak perlu datang ke sekolah untuk memilih secara manual.
+</p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<p align="center">
+<!-- You can customize this list! Visit https://skillicons.dev to generate your own. -->
+<a href="https://skillicons.dev">
+<img src="https://www.google.com/search?q=https://skillicons.dev/icons%3Fi%3Dlaravel,php,mysql,js,html,css,bootstrap,tailwind,figma,vscode,git" />
+</a>
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<!-- Divider GIF -->
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<p align="center">
+<img src="https://www.google.com/search?q=https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2o0azNqZzZzZzR0bTk5YjI3bW1qd2pnaXN4bWJzYnN6Y2w4d2k4eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/xUPGcl3W6C82uB1B0A/giphy.gif" width="500">
+</p>
