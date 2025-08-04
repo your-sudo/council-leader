@@ -15,10 +15,16 @@ class votingController extends Controller
     }
 
     public function kandidat(){
-        $kandidat = Kandidat::all();
-        dd($kandidat);
+        $semuakandidat = Kandidat::all();
+        [$caksis, $cawaksis] = $semuakandidat->partition(function ($kandidat){
+            return $kandidat->calon_jabaran === 'caksis';
 
+        });
+        return view('voting.dashboard', [
+            'caksis' => $caksis,
+            'cawaksis'=>$cawaksis,
 
+        ]);
     }
 
 }

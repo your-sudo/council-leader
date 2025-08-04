@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>e‑Voting Pilkosis</title>
   <style>
-    
     :root {
       --primary: #484361;
       --highlight: #EC9F1D;
@@ -143,112 +142,55 @@
   </div>
 
   <!-- Calon Ketua -->
-<section class="fade-in" id="ketua">
-  <h2>Calon Ketua OSIS</h2>
-  <div class="cards">
-
-    <!-- Ketua 1 -->
-    <div class="card">
-      <div class="img" style="background-image: url('{{ asset('assets/img/kandidat1.png') }}');"></div>
-      <div class="card-body">
-        <div class="card-title">Ketua 1</div>
-        <button class="btn-toggle">Lihat Visi/Misi & Proker</button>
-        <div class="details">
-          <p><strong>Visi:</strong> Tingkatkan kreativitas siswa.</p>
-          <p><strong>Misi:</strong> Lomba seni tahunan.</p>
-          <p><strong>Proker:</strong> Workshop seni & budaya.</p>
+  <section class="fade-in" id="ketua">
+    <h2>Calon Ketua OSIS</h2>
+    <div class="cards">
+      {{-- This loop will generate a card for each candidate in the $ketuaCandidates collection --}}
+      @forelse ($caksis as $kandidat)
+        <div class="card">
+          {{-- Assuming you have a 'photo' column in your database with the path to the image --}}
+          <div class="img" style="background-image: url('{{ asset($kandidat->photo) }}');"></div>
+          <div class="card-body">
+            <div class="card-title">{{ $kandidat->nama }}</div>
+            <button class="btn-toggle">Lihat Visi/Misi & Proker</button>
+            <div class="details">
+              <p><strong>Visi:</strong> {{ $kandidat->visi }}</p>
+              <p><strong>Misi:</strong> {{ $kandidat->misi }}</p>
+              <p><strong>Proker:</strong> </p>
+            </div>
+            <button class="btn-vote">Pilih</button>
+          </div>
         </div>
-        <button class="btn-vote">Pilih</button>
-        
-      </div>
+      @empty
+        <p>Belum ada kandidat untuk posisi Ketua OSIS.</p>
+      @endforelse
     </div>
+  </section>
 
-    <!-- Ketua 2 -->
-    <div class="card">
-      <div class="img" style="background-image: url('{{ asset('assets/img/kandidat1.png') }}')"></div>
-      <div class="card-body">
-        <div class="card-title">Ketua 2</div>
-        <button class="btn-toggle">Lihat Visi/Misi & Proker</button>
-        <div class="details">
-          <p><strong>Visi:</strong> Sosial & kepedulian.</p>
-          <p><strong>Misi:</strong> Baksos rutin.</p>
-          <p><strong>Proker:</strong> Program bakti sosial.</p>
+  <!-- Calon Wakil -->
+  <section class="fade-in" id="wakil">
+    <h2>Calon Wakil Ketua OSIS</h2>
+    <div class="cards">
+      {{-- This loop will generate a card for each candidate in the $wakilCandidates collection --}}
+      @forelse ($cawaksis as $kandidat)
+        <div class="card">
+          <div class="img" style="background-image: url('{{ asset($kandidat->photo) }}');"></div>
+          <div class="card-body">
+            <div class="card-title">{{ $kandidat->nama }}</div>
+            <button class="btn-toggle">Lihat Visi/Misi & Proker</button>
+            <div class="details">
+              <p><strong>Visi:</strong> {{ $kandidat->visi }}</p>
+              <p><strong>Misi:</strong> {{ $kandidat->misi }}</p>
+              <p><strong>Proker:</strong> </p>
+            </div>
+            <button class="btn-vote">Pilih</button>
+          </div>
         </div>
-        <button class="btn-vote">Pilih</button>
-      </div>
+      @empty
+        <p>Belum ada kandidat untuk posisi Wakil Ketua OSIS.</p>
+      @endforelse
     </div>
-
-    <!-- Ketua 3 -->
-    <div class="card">
-      <div class="img" style="background-image: url('{{ asset('assets/img/kandidat3.jpg') }}');"></div>
-      <div class="card-body">
-        <div class="card-title">Ketua 3</div>
-        <button class="btn-toggle">Lihat Visi/Misi & Proker</button>
-        <div class="details">
-          <p><strong>Visi:</strong> Inovasi teknologi.</p>
-          <p><strong>Misi:</strong> Klub robotik.</p>
-          <p><strong>Proker:</strong> Kompetisi robot antar kelas.</p>
-        </div>
-        <button class="btn-vote">Pilih</button>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Calon Wakil -->
-<section class="fade-in" id="wakil">
-  <h2>Calon Wakil Ketua OSIS</h2>
-  <div class="cards">
-
-    <!-- Wakil 1 -->
-    <div class="card">
-      <div class="img" style="background-image: url('{{ asset('assets/img/wakil1.jpg') }}');"></div>
-      <div class="card-body">
-        <div class="card-title">Wakil 1</div>
-        <button class="btn-toggle">Lihat Visi/Misi & Proker</button>
-        <div class="details">
-          <p><strong>Visi:</strong> Mentoring siswa kuat.</p>
-          <p><strong>Misi:</strong> Peer mentoring.</p>
-          <p><strong>Proker:</strong> Sesi bimbingan belajar.</p>
-        </div>
-        <button class="btn-vote">Pilih</button>
-      </div>
-    </div>
-
-    <!-- Wakil 2 -->
-    <div class="card">
-      <div class="img" style="background-image: url('{{ asset('assets/img/wakil2.jpg') }}');"></div>
-      <div class="card-body">
-        <div class="card-title">Wakil 2</div>
-        <button class="btn-toggle">Lihat Visi/Misi & Proker</button>
-        <div class="details">
-          <p><strong>Visi:</strong> Kepemimpinan siswa.</p>
-          <p><strong>Misi:</strong> Pelatihan rutin.</p>
-          <p><strong>Proker:</strong> Diskusi siswa.</p>
-        </div>
-        <button class="btn-vote">Pilih</button>
-      </div>
-    </div>
-
-    <!-- Wakil 3 -->
-    <div class="card">
-      <div class="img" style="background-image: url('{{ asset('assets/img/wakil3.jpg') }}');"></div>
-      <div class="card-body">
-        <div class="card-title">Wakil 3</div>
-        <button class="btn-toggle">Lihat Visi/Misi & Proker</button>
-        <div class="details">
-          <p><strong>Visi:</strong> Literasi sekolah.</p>
-          <p><strong>Misi:</strong> Klub jurnalistik.</p>
-          <p><strong>Proker:</strong> Pelatihan menulis & jurnal.</p>
-        </div>
-        <button class="btn-vote">Pilih</button>
-      </div>
-    </div>
-
-  </div>
-</section>
-
+  </section>
 
 </main>
 
@@ -274,3 +216,5 @@
 
 </body>
 </html>
+```
+
