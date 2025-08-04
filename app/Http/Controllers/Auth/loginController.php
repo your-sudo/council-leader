@@ -55,14 +55,15 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
 
-        if (Auth::attempt(['NIS' => $credentials['nis'], 'password' => $credentials['password']])) {
+        if (Auth::attempt(['nis' => $credentials['nis'], 'password' => $credentials['password']])) {
             $request->session()->regenerate();
-            if (Auth::attempt(['role' => 'admin'])) {
-                return redirect()->intended('dashboardadmin');
-            }
-            return redirect()->intended('dashboard');
-        }
+        $user = Auth::user();
 
+            if ($user->role === 'admin') {
+                return redirect()->intended('dashboardadmin');
+        }
+        return redirect()->intended('dashboard');
+    }
         return back()->withErrors([
             'nis' => 'NIS atau Password yang Anda masukkan salah.',
         ])->onlyInput('nis');
