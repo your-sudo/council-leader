@@ -12,7 +12,7 @@
 <img src="https://www.google.com/search?q=https://readme-typing-svg.demolab.com%3Ffont%3DFira%2BCode%26weight%3D600%26size%3D25%26pause%3D1000%26color%3D484361%26center%3Dtrue%26vCenter%3Dtrue%26width%3D435%26lines%3DA%2BPassionate%2BDeveloper%3BTurning%2BIdeas%2Binto%2BReality%3BExploring%2Bthe%2BWorld%2Bof%2BCode%3BJust%2Blike%2Ba%2Bsh%C5%8Dnen%2Bprotagonist!" alt="Typing SVG" />
 </a>
 </div>
-⚔️ 
+
 
 <p align="center">
 Ini adalah website untuk memudahkan pemilihan ketua osis yang berdasar online, sehingga siswa kelas 12 yang sedang pkl tidak perlu datang ke sekolah untuk memilih secara manual.
