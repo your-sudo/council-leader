@@ -1,4 +1,4 @@
-!-- Header Banner -->
+
 
 <p align="center">
 <img src="https://www.google.com/search?q=https://i.pinimg.com/originals/3b/84/35/3b8435555351857f49354735c1790e19.gif" alt="Anime Scenery GIF" width="800"/>
