@@ -158,7 +158,7 @@
               <p><strong>Misi:</strong> {{ $kandidat->misi }}</p>
               <p><strong>Proker:</strong> </p>
             </div>
-            <button class="btn-vote">Pilih</button>
+            <button class="btn-vote" name="pilih_caksis" value="{{ $kandidat->id }}" type="submit">Pilih</button>
           </div>
         </div>
       @empty
@@ -183,7 +183,7 @@
               <p><strong>Misi:</strong> {{ $kandidat->misi }}</p>
               <p><strong>Proker:</strong> </p>
             </div>
-            <button class="btn-vote">Pilih</button>
+            <button class="btn-vote" name="pilih_cawaksis" data-kandidat-id="{{ $kandidat->id }}" data-kandidat-calonjabatan="{{ $kandidat->calon_jabatan }}" onclick=="submitVote(this)">Pilih</button>
           </div>
         </div>
       @empty

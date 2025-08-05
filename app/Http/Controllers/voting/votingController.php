@@ -26,6 +26,10 @@ class votingController extends Controller
 
         ]);
     }
+    public function votes(){
+    $votecaksis =      
+
+    }
 
 }
 
