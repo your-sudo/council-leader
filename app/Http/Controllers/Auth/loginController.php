@@ -43,6 +43,7 @@ class LoginController extends Controller
         }
 
         $user->password = Hash::make($request->password);
+        
         $user->save();
         Auth::login($user);
         return redirect('/dashboard');

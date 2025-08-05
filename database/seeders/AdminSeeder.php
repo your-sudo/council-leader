@@ -38,7 +38,8 @@ class AdminSeeder extends Seeder
             'visi'=>'halowak',
             'misi'=>'halocik',
             'foto'=>'jawa.png',
-            'calon_jabatan'=>'caksis'
+            'calon_jabatan'=>'caksis',
+            'jumlah_suara'=>'0',
 
 
         ]);

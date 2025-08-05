@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>e‑Voting Pilkosis</title>
+  <meta name ="csrf-token" content="{{ csrf_token() }}">
+  
   <style>
     :root {
       --primary: #484361;
@@ -158,7 +160,7 @@
               <p><strong>Misi:</strong> {{ $kandidat->misi }}</p>
               <p><strong>Proker:</strong> </p>
             </div>
-            <button class="btn-vote" name="pilih_caksis" value="{{ $kandidat->id }}" type="submit">Pilih</button>
+            <button class="btn-vote-caksis" name="pilih_caksis" data-kandidatid="{{ $kandidat->id }}" data-kandidatcalonjabatan="{{ $kandidat->calon_jabatan }}" >Pilih</button>
           </div>
         </div>
       @empty
@@ -183,7 +185,7 @@
               <p><strong>Misi:</strong> {{ $kandidat->misi }}</p>
               <p><strong>Proker:</strong> </p>
             </div>
-            <button class="btn-vote" name="pilih_cawaksis" data-kandidat-id="{{ $kandidat->id }}" data-kandidat-calonjabatan="{{ $kandidat->calon_jabatan }}" onclick=="submitVote(this)">Pilih</button>
+            <button class="btn-vote-cawaksis" name="pilih_cawaksis" data-kandidatid="{{ $kandidat->id }}" data-kandidatcalonjabatan="{{ $kandidat->calon_jabatan }}" >Pilih</button>
           </div>
         </div>
       @empty
@@ -193,7 +195,7 @@
   </section>
 
 </main>
-
+@vite('resources/js/vote.js')
 <footer>&copy; 2025 — Ciptaan <a href="#">OSSMENZA'57</a></footer>
 
 <script>
@@ -204,13 +206,13 @@
     document.querySelectorAll('.card').forEach((c, i) => {
       setTimeout(() => c.classList.add('visible'), 600 + i * 120);
     });
-    document.querySelectorAll('.btn-toggle').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const det = btn.nextElementSibling;
-        det.style.display = det.style.display === 'block' ? 'none' : 'block';
-        btn.textContent = det.style.display === 'block' ? 'Sembunyikan Details' : 'Lihat Visi/Misi & Proker';
-      });
-    });
+    // document.querySelectorAll('.btn-toggle').forEach(btn => {
+    //   // btn.addEventListener('click', () => {
+    //   //   const det = btn.nextElementSibling;
+    //   //   det.style.display = det.style.display === 'block' ? 'none' : 'block';
+    //   //   btn.textContent = det.style.display === 'block' ? 'Sembunyikan Details' : 'Lihat Visi/Misi & Proker';
+    //   // });
+    // });
   });
 </script>
 

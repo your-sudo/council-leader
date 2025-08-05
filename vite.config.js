@@ -8,8 +8,8 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
-                'resources/js/lupapass.js'
-,
+                'resources/js/lupapass.js',
+                'resources/js/vote.js'
             ],
             refresh: true,
         }),

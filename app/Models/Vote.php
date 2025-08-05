@@ -10,10 +10,9 @@ class Vote extends Model
     use HasFactory;
 
         protected $fillable = [
-        'nama',
-        'visi',
-        'misi',
-        'foto',
-        'calon_jabatan',
+        'user_id',
+        'nis',
+        'voted_caksis_id',
+        'voted_cawaksis_id',
     ];
 }

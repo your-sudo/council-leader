@@ -1,33 +1,53 @@
-function submitVote(button) {
-    const candidateId = button.getAttribute('data-kandidat-id');
-    const position = button.getAttribute('data-kandidat-calon_jabatan');
+import $ from 'jquery';
+window.$ = window.jQuery = $;
 
-    const data = {
-        candidate_id: candidateId,
-        position: position,
-        _token: '{{ csrf_token() }}'
-    };
+$(document).ready(function() {
+    $('.btn-vote-caksis, .btn-vote-cawaksis').on('click', function() {
+        const button = $(this);
+        const kandidatId = button.data('kandidatid');
+        const kandidatCalonJabatan = button.data('kandidatcalonjabatan');
 
-    fetch('/vote', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest', // A good practice for AJAX requests
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => {
-        if (response.ok) {
-            return response.json(); 
+        if (kandidatCalonJabatan === 'caksis') {
+            $('.btn-vote-caksis').prop('disabled', true).text('Sudah Vote');
+        } else if (kandidatCalonJabatan === 'cawaksis') {
+            $('.btn-vote-cawaksis').prop('disabled', true).text('Sudah Vote');
         }
-        return response.json().then(errorData => {
-            throw new Error(errorData.message || 'An error occurred.');
+        $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
         });
-    })
-    .then(data => {
-       alert(data.message);
-    })
-    .catch(error => {
-    alert('Error: ' + error.message);
+        $.ajax({
+            url: '/submit',
+            type: 'POST',
+            data: {
+                kandidat_id: kandidatId,
+                calon_jabatan: kandidatCalonJabatan,
+                _token: '{{ csrf_token() }}'
+            },
+            dataType: 'json',
+            success: function(response) {
+                if (response.success) {
+                    alert('Vote berhasil: ' + response.message);
+                } else {
+                    alert('Vote gagal: ' + response.message);
+                    
+                    if (kandidatCalonJabatan === 'caksis') {
+                        $('.btn-vote-caksis').prop('disabled', false).text('Pilih');
+                    } else if (kandidatCalonJabatan === 'cawaksis') {
+                        $('.btn-vote-cawaksis').prop('disabled', false).text('Pilih');
+                    }
+                }
+            },
+            error: function(xhr) {
+                alert('Terjadi kesalahan koneksi.');
+                
+                if (kandidatCalonJabatan === 'caksis') {
+                    $('.btn-vote-caksis').prop('disabled', false).text('Pilih');
+                } else if (kandidatCalonJabatan === 'cawaksis') {
+                    $('.btn-vote-cawaksis').prop('disabled', false).text('Pilih');
+                }
+            }
+        });
     });
-}
+});

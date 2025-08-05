@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('misi');
             $table->string('foto')->nullable();
             $table->enum ('calon_jabatan', ['caksis', 'cawaksis']);
+            $table->integer('jumlah_suara')->default(0);
             $table->timestamps();
         });
     }
