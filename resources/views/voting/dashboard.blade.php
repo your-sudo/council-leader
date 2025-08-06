@@ -147,8 +147,7 @@
   <section class="fade-in" id="ketua">
     <h2>Calon Ketua OSIS</h2>
     <div class="cards">
-      {{-- This loop will generate a card for each candidate in the $ketuaCandidates collection --}}
-      @forelse ($caksis as $kandidat)
+      @forelse ($paslon as $kandidat)
         <div class="card">
           {{-- Assuming you have a 'photo' column in your database with the path to the image --}}
           <div class="img" style="background-image: url('{{ asset($kandidat->photo) }}');"></div>
@@ -160,7 +159,7 @@
               <p><strong>Misi:</strong> {{ $kandidat->misi }}</p>
               <p><strong>Proker:</strong> </p>
             </div>
-            <button class="btn-vote-caksis" name="pilih_caksis" data-kandidatid="{{ $kandidat->id }}" data-kandidatcalonjabatan="{{ $kandidat->calon_jabatan }}" >Pilih</button>
+            <button class="btn-vote-paslon" name="pilih_caksis" data-paslonid="{{ $kandidat->id }}" data-kandidatcalonjabatan="{{ $kandidat->calon_jabatan }}" >Pilih</button>
           </div>
         </div>
       @empty
@@ -169,31 +168,7 @@
     </div>
   </section>
 
-  <!-- Calon Wakil -->
-  <section class="fade-in" id="wakil">
-    <h2>Calon Wakil Ketua OSIS</h2>
-    <div class="cards">
-      {{-- This loop will generate a card for each candidate in the $wakilCandidates collection --}}
-      @forelse ($cawaksis as $kandidat)
-        <div class="card">
-          <div class="img" style="background-image: url('{{ asset($kandidat->photo) }}');"></div>
-          <div class="card-body">
-            <div class="card-title">{{ $kandidat->nama }}</div>
-            <button class="btn-toggle">Lihat Visi/Misi & Proker</button>
-            <div class="details">
-              <p><strong>Visi:</strong> {{ $kandidat->visi }}</p>
-              <p><strong>Misi:</strong> {{ $kandidat->misi }}</p>
-              <p><strong>Proker:</strong> </p>
-            </div>
-            <button class="btn-vote-cawaksis" name="pilih_cawaksis" data-kandidatid="{{ $kandidat->id }}" data-kandidatcalonjabatan="{{ $kandidat->calon_jabatan }}" >Pilih</button>
-          </div>
-        </div>
-      @empty
-        <p>Belum ada kandidat untuk posisi Wakil Ketua OSIS.</p>
-      @endforelse
-    </div>
-  </section>
-
+  
 </main>
 @vite('resources/js/vote.js')
 <footer>&copy; 2025 — Ciptaan <a href="#">OSSMENZA'57</a></footer>
