@@ -145,7 +145,7 @@
 
   <!-- Calon Ketua -->
   <section class="fade-in" id="ketua">
-    <h2>Calon Ketua OSIS</h2>
+    <h2>Paslon</h2>
     <div class="cards">
       @forelse ($paslon as $kandidat)
         <div class="card">
