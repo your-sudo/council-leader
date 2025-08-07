@@ -2,38 +2,39 @@ import $ from 'jquery';
 window.$ = window.jQuery = $;
 
 $(document).ready(function() {
-    $('.btn-vote-paslon, .btn-vote-cawaksis').on('click', function() {
-        const button = $(this);
-        const kandidatId = button.data('paslonid');
-
-        $.ajaxSetup({
+    
+    $.ajaxSetup({
         headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+ 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-        });
+    });
+
+    $('.btn-vote').on('click', function() {
+    const button = $(this);
+         const kandidatId = button.data('paslonid');
+
+        $('.btn-vote').prop('disabled', true).text('Memproses...');
+
         $.ajax({
-            url: '/submit',
-            type: 'POST',
+    url: '/votesubmit', 
+        type: 'POST',
             data: {
                 kandidat_id: kandidatId,
-                calon_jabatan: kandidatCalonJabatan,
-                _token: '{{ csrf_token() }}'
             },
             dataType: 'json',
             success: function(response) {
                 if (response.success) {
-                    alert('Vote berhasil: ' + response.message);
+                    alert('Vote berhasil! ' + response.message);
+                 $('.btn-vote').text('Sudah Memilih').prop('disabled', true);
+                        button.closest('.card').css('border', '3px solid var(--highlight)');
                 } else {
-                    alert('Vote gagal: ' + response.message);
-                    
-                    if (kandidatCalonJabatan === 'caksis') {
-                        $('.btn-vote-paslon').prop('disabled', false).text('Pilih');
-                    } 
+             alert('Vote Gagal: ' + response.message);
+        $('.btn-vote').prop('disabled', false).text('Pilih');
                 }
             },
             error: function(xhr) {
-                alert('Terjadi kesalahan koneksi.');
-                
+                alert('gagal');
+                $('.btn-vote').prop('disabled', false).text('Pilih');
             }
         });
     });

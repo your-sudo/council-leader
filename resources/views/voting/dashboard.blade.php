@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>e‑Voting Pilkosis</title>
-  <meta name ="csrf-token" content="{{ csrf_token() }}">
+  {{-- This is the correct way to pass the CSRF token to JavaScript --}}
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   
   <style>
     :root {
@@ -88,7 +89,7 @@
     .btn-toggle:hover { color:var(--accent); }
     .details {
       margin-top:.5rem;
-      display:none;
+      display:none; /* Initially hidden */
       font-size:.9rem;
       color:var(--accent);
     }
@@ -100,9 +101,15 @@
       border:none;
       border-radius:6px;
       cursor:pointer;
-      transition: background .3s ease;
+      transition: background .3s ease, opacity .3s ease;
     }
     .btn-vote:hover { background:var(--accent); color:var(--white); }
+    .btn-vote:disabled {
+        background: #ccc;
+        color: #666;
+        cursor: not-allowed;
+        opacity: 0.7;
+    }
     footer {
       background:var(--primary);
       color:var(--white);
@@ -131,8 +138,6 @@
 
 <header>e‑Voting Pilkosis</header>
 <main>
-
-  <!-- About Us -->
   <div class="about fade-in" id="about">
     <h2>Tentang Kami</h2>
     <p>
@@ -143,13 +148,11 @@
     </p>
   </div>
 
-  <!-- Calon Ketua -->
-  <section class="fade-in" id="ketua">
-    <h2>Paslon</h2>
+  <section class="fade-in" id="paslon">
+    <h2>Pasangan Calon</h2>
     <div class="cards">
       @forelse ($paslon as $kandidat)
         <div class="card">
-          {{-- Assuming you have a 'photo' column in your database with the path to the image --}}
           <div class="img" style="background-image: url('{{ asset($kandidat->photo) }}');"></div>
           <div class="card-body">
             <div class="card-title">{{ $kandidat->nama }}</div>
@@ -157,41 +160,45 @@
             <div class="details">
               <p><strong>Visi:</strong> {{ $kandidat->visi }}</p>
               <p><strong>Misi:</strong> {{ $kandidat->misi }}</p>
-              <p><strong>Proker:</strong> </p>
+              {{-- You can add the program kerja here --}}
+              <p><strong>Program Kerja:</strong> {{ $kandidat->proker ?? 'Belum ada data.' }}</p>
             </div>
-            <button class="btn-vote-paslon" name="pilih_caksis" data-paslonid="{{ $kandidat->id }}" data-kandidatcalonjabatan="{{ $kandidat->calon_jabatan }}" >Pilih</button>
+            {{-- Unified button class for easier selection in JS --}}
+            <button class="btn-vote" data-paslonid="{{ $kandidat->id }}">Pilih</button>
           </div>
         </div>
       @empty
-        <p>Belum ada kandidat untuk posisi Ketua OSIS.</p>
+        <p>Belum ada kandidat yang terdaftar.</p>
       @endforelse
     </div>
   </section>
-
   
 </main>
+
 @vite('resources/js/vote.js')
+
 <footer>&copy; 2025 — Ciptaan <a href="#">OSSMENZA'57</a></footer>
 
 <script>
-  window.addEventListener('load', () => {
+  document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.fade-in').forEach((el, i) => {
       setTimeout(() => el.classList.add('visible'), i * 200);
     });
     document.querySelectorAll('.card').forEach((c, i) => {
-      setTimeout(() => c.classList.add('visible'), 600 + i * 120);
+      setTimeout(() => c.classList.add('visible'), 400 + i * 120);
     });
-    // document.querySelectorAll('.btn-toggle').forEach(btn => {
-    //   // btn.addEventListener('click', () => {
-    //   //   const det = btn.nextElementSibling;
-    //   //   det.style.display = det.style.display === 'block' ? 'none' : 'block';
-    //   //   btn.textContent = det.style.display === 'block' ? 'Sembunyikan Details' : 'Lihat Visi/Misi & Proker';
-    //   // });
-    // });
+
+    document.querySelectorAll('.btn-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const details = btn.nextElementSibling;
+        const isVisible = details.style.display === 'block';
+        
+        details.style.display = isVisible ? 'none' : 'block';
+        btn.textContent = isVisible ? 'Lihat Visi/Misi & Proker' : 'Sembunyikan Detail';
+      });
+    });
   });
 </script>
 
 </body>
 </html>
-```
-

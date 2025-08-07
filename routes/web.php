@@ -21,7 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboardadmin', function () {
         return view('adminPage.dashboardAdmin'); 
     })->name('dashboardadmin');
-    Route::post('/submit', [votingController::class, 'submitVote'])->name('votesubmit');
+    Route::post('/votesubmit', [votingController::class, 'submitVote'])->name('votesubmit');
     Route::post('/logout', [loginController::class, 'logout'])->name('logout');
 });
 
