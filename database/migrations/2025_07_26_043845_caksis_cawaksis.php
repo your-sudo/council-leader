@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('kandidats', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('visi');
-            $table->string('misi');
+            $table->text('visi');
+            $table->text('misi');
             $table->string('foto')->nullable();
-            $table->enum ('calon_jabatan', ['caksis', 'cawaksis']);
             $table->integer('jumlah_suara')->default(0);
             $table->timestamps();
         });

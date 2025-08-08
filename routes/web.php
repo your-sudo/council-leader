@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\loginController;
 use App\Http\Controllers\Auth\lupapassword;
 use App\Http\Controllers\voting\votingController;
+use App\Http\Controllers\admin\adminController;
 
 
 
@@ -23,6 +24,9 @@ Route::middleware('auth')->group(function () {
     })->name('dashboardadmin');
     Route::post('/votesubmit', [votingController::class, 'submitVote'])->name('votesubmit');
     Route::post('/logout', [loginController::class, 'logout'])->name('logout');
+    Route::get('/tambahkandidat', [adminController::class, 'tambahKandidatForm'])->name('tambahkandidat');
+     Route::get('/manajemenkandidat', [adminController::class, 'showManajemenKandidat'])->name('manajemenkandidat');
+    Route::post('/tambahkandidat', [adminController::class, 'tambahKandidat'])->name('tambahkandidatsubmit');
 });
 
 Route::get('/', function () {

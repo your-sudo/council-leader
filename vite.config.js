@@ -9,7 +9,10 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
                 'resources/js/lupapass.js',
-                'resources/js/vote.js'
+                'resources/js/vote.js',
+                'resources/js/admin.js',
+                'resources/css/admin.css',
+                'resources/css/kandidat.css',
             ],
             refresh: true,
         }),

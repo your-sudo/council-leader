@@ -33,16 +33,16 @@ class AdminSeeder extends Seeder
             'nama_ibu' => 'jarko',
         ]);
 
-        Kandidat::create([
-            'nama'=>'prabowo',
-            'visi'=>'halowak',
-            'misi'=>'halocik',
-            'foto'=>'jawa.png',
-            'calon_jabatan'=>'caksis',
-            'jumlah_suara'=>'0',
+        // Kandidat::create([
+        //     'nama'=>'prabowo',
+        //     'visi'=>'halowak',
+        //     'misi'=>'halocik',
+        //     'foto'=>'jawa.png',
+        //     'calon_jabatan'=>'caksis',
+        //     'jumlah_suara'=>'0',
 
 
-        ]);
+        // ]);
 
     }
 }
