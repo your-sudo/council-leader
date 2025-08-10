@@ -20,7 +20,7 @@
             enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="nama">Nama Kandidat</label>
+                    <label for="nama">Nama Paslon</label>
                     <input type="text"
                            id="nama"
                            name="nama"

@@ -16,7 +16,7 @@
         <div class="sidebar-header">
             <div class="sidebar-brand">
                 <i class="fas fa-tachometer-alt"></i>
-                <span>AdminPro</span>
+                <span>Admin aw aw</span>
             </div>
         </div>
         <nav class="sidebar-nav">
@@ -57,7 +57,7 @@
                 </a>
             </div>
             <div class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/logout" class="nav-link">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Logout</span>
                 </a>

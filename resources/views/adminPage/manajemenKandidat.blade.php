@@ -11,6 +11,11 @@
             </button>
             <h1 class="header-title">Tambah Kandidat</h1>
         </div>
+        <div style="display: flex; align-items:right; gap: 1rem;">
+        <a href="{{ route('tambahkandidat') }}">
+                    <span>Tambah Kandidat</span>
+                </a>   
+      </div>
     </header>
 
     <div class="dashboard-content">
@@ -174,14 +179,13 @@
               <p><strong>Program Kerja:</strong> {{ $kandidat->proker ?? 'Belum ada data.' }}</p>
             </div>
             {{-- Unified button class for easier selection in JS --}}
-            <table border="1">
+            <table border="0">
                 <tr>
                     <td>
-                <button class="btn-edit" data-paslonid="{{ $kandidat->id }}">edit</button>
+                <a  class="btn-edit" data-paslonid="{{ $kandidat->id }}">Edit
                 </td>
                 <td>
-                    <button class="btn-delete" data-paslonid="{{ $kandidat->id }}">delete</button>
-                </td>
+               <a  class="btn-edit" data-paslonid="{{ $kandidat->id }}">Hapus                </td>
             </tr>
             </table>
             

@@ -24,7 +24,7 @@ class adminController extends Controller
             'misi' => $request->misi,
             'jumlah_suara' => 0, // Default value
         ]);
-        return view('adminPage.tambahKandidat');
+        return redirect()->route('manajemenKandidat');
 
     }
 
@@ -46,6 +46,31 @@ class adminController extends Controller
         $kandidat->visi = $request->visi;
         $kandidat->misi = $request->misi;
         $kandidat->save();
+
+        
+    }
+    public function dashboardadmin()
+    {
+        $jumlahuser = \App\Models\User::count();
+        $jumlahsudahvote = \App\Models\Vote::whereNotNull('user_id')->count();
+        $persentase = $jumlahsudahvote / $jumlahuser * 100;
+        $kandidatunggul = Kandidat::orderBy('jumlah_suara', 'desc')->select('id')->first();
+
+        $paslonchart = Kandidat::orderBy('jumlah_suara', 'desc')->first();
+
+        if(!$paslonchart) {
+            $paslonchart = (object) ['nama' => 'belum ada data', 'jumlah_suara' => 0];
+        }
+
+
+        return view('adminPage.dashboardAdmin', [
+            'jumlahuser' => $jumlahuser,
+            'jumlahsudahvote' => $jumlahsudahvote,
+            'persentase' => $persentase,
+            'kandidatunggul' => $kandidatunggul,
+            'paslonchart' => $paslonchart,
+        ]);
+
     }
 
     public function tambahKandidatForm()

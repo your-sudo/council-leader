@@ -19,14 +19,14 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard',[votingController::class, 'kandidat'])->name('dashboard');
-    Route::get('/dashboardadmin', function () {
-        return view('adminPage.dashboardAdmin'); 
-    })->name('dashboardadmin');
+    Route::get('/dashboardadmin', [adminController::class, 'dashboardadmin'])->name('dashboardadmin');
     Route::post('/votesubmit', [votingController::class, 'submitVote'])->name('votesubmit');
     Route::post('/logout', [loginController::class, 'logout'])->name('logout');
     Route::get('/tambahkandidat', [adminController::class, 'tambahKandidatForm'])->name('tambahkandidat');
      Route::get('/manajemenkandidat', [adminController::class, 'showManajemenKandidat'])->name('manajemenkandidat');
     Route::post('/tambahkandidat', [adminController::class, 'tambahKandidat'])->name('tambahkandidatsubmit');
+        Route::get('/logout', [loginController::class, 'logout'])->name('logout');
+
 });
 
 Route::get('/', function () {
@@ -36,6 +36,4 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
-Route::get('/about', function () {
-    return view("pages.about");
-});
+

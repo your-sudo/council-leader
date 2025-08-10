@@ -1,9 +1,19 @@
+        
         const menuToggle = document.getElementById('menuToggle');
         const sidebar = document.getElementById('sidebar');
         const mainContent = document.getElementById('mainContent');
         const sidebarOverlay = document.getElementById('sidebarOverlay');
 
         let sidebarOpen = window.innerWidth > 768;
+
+
+
+
+
+
+
+
+
 
         function toggleSidebar() {
             sidebarOpen = !sidebarOpen;

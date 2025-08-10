@@ -29,9 +29,9 @@
             <div class="stat-card">
                 <div class="stat-header">
                     <div>
-                        <div class="stat-title">Total Users</div>
-                        <div class="stat-value">12,847</div>
-                        <div class="stat-change positive">+2.5% from last month</div>
+                        <div class="stat-title">Total Siswa</div>
+                        <div class="stat-value">{{$jumlahuser - 1}}</div>
+                        <div class="stat-change positive">Jumlah siswa</div>
                     </div>
                     <div class="stat-icon users">
                         <i class="fas fa-users"></i>
@@ -41,9 +41,9 @@
             <div class="stat-card">
                 <div class="stat-header">
                     <div>
-                        <div class="stat-title">Total Orders</div>
-                        <div class="stat-value">3,264</div>
-                        <div class="stat-change positive">+8.1% from last month</div>
+                        <div class="stat-title">Persentase vote</div>
+                        <div class="stat-value">{{$jumlahsudahvote}}%</div>
+                        <div class="stat-change positive">Persentase siswa yang sudah voting</div>
                     </div>
                     <div class="stat-icon orders">
                         <i class="fas fa-shopping-cart"></i>
@@ -53,9 +53,9 @@
             <div class="stat-card">
                 <div class="stat-header">
                     <div>
-                        <div class="stat-title">Revenue</div>
-                        <div class="stat-value">$94,567</div>
-                        <div class="stat-change positive">+12.3% from last month</div>
+                        <div class="stat-title">total siswa sudah vote</div>
+                        <div class="stat-value">{{$jumlahsudahvote}}</div>
+                        
                     </div>
                     <div class="stat-icon revenue">
                         <i class="fas fa-dollar-sign"></i>
@@ -65,9 +65,9 @@
             <div class="stat-card">
                 <div class="stat-header">
                     <div>
-                        <div class="stat-title">Growth Rate</div>
-                        <div class="stat-value">15.2%</div>
-                        <div class="stat-change negative">-1.4% from last month</div>
+                        <div class="stat-title">Paslon unggul sementara</div>
+                        <div class="stat-value">Paslon {{$kandidatunggul -> id}}</div>
+                        <div class="stat-change positive">Paslon yang sementara unggul</div>
                     </div>
                     <div class="stat-icon growth">
                         <i class="fas fa-chart-line"></i>
@@ -84,8 +84,42 @@
             </div>
             <div class="chart-placeholder">
                 <i class="fas fa-chart-area" style="font-size: 3rem; margin-right: 1rem;"></i>
-                Chart will be rendered here
+                 <canvas id="voteChart"></canvas>
             </div>
         </div>
     </div>
+
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const paslonchart = @json($paslonchart);
+
+        const ctx = document.getElementById('voteChart').getContext('2d');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["Paslon "+paslonchart.id],
+                datasets: [{
+                    label: 'Total Suara',
+                    data: [paslonchart.suara],
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
 @endsection
