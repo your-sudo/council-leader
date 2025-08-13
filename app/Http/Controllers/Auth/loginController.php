@@ -58,6 +58,10 @@ class LoginController extends Controller
 
         $user = User::where('nis', $credentials['nis'])->first();
 
+        if (empty($user->password)) {
+            return back()->withErrors(['nis' => 'Mohon buat password terlebih dahulu'])->withInput();
+        }
+
         if (Auth::attempt(['nis' => $credentials['nis'], 'password' => $credentials['password']])) {
             
             if ($user->role === 'user') {
