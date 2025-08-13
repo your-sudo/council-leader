@@ -154,17 +154,19 @@
   </div>
 
   <section class="fade-in" id="paslon">
-    <h2>Pasangan Calon</h2>
+    <h2>Pasangan Calon</h2> 
     <div class="cards">
       @forelse ($paslon as $kandidat)
         <div class="card">
-          <div class="img" style="background-image: url('{{ asset($kandidat->photo) }}');"></div>
+          <div class="img" style="background-image: url('{{ asset("storage/" . $kandidat->foto) }}');"></div>
+        
           <div class="card-body">
             <div class="card-title">{{ $kandidat->nama }}</div>
             <button class="btn-toggle">Lihat Visi/Misi & Proker</button>
             <div class="details">
               <p><strong>Visi:</strong> {{ $kandidat->visi }}</p>
               <p><strong>Misi:</strong> {{ $kandidat->misi }}</p>
+              
               {{-- You can add the program kerja here --}}
               <p><strong>Program Kerja:</strong> {{ $kandidat->proker ?? 'Belum ada data.' }}</p>
             </div>
@@ -180,11 +182,14 @@
   
 </main>
 
-@vite('resources/js/vote.js')
+
 
 <footer>&copy; 2025 — Ciptaan <a href="#">OSSMENZA'57</a></footer>
 
 <script>
+
+
+
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.fade-in').forEach((el, i) => {
       setTimeout(() => el.classList.add('visible'), i * 200);
@@ -203,7 +208,14 @@
       });
     });
   });
-</script>
 
+
+  let sudahvote = @json($user->vote_status === 'sudah');
+
+if (sudahvote === true) {
+    $('.btn-vote').prop('disabled', true).text('Sudah Memilih');
+}
+</script>
+@vite(["resources/js/vote.js"])
 </body>
 </html>

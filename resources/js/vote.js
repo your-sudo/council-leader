@@ -1,6 +1,9 @@
 import $ from 'jquery';
 window.$ = window.jQuery = $;
 
+if (sudahvote ==  true){
+    $('.btn-vote').prop('disabled', true).text('Sudah Memilih');
+}
 $(document).ready(function() {
     
     $.ajaxSetup({
@@ -25,15 +28,15 @@ $(document).ready(function() {
             success: function(response) {
                 if (response.success) {
                     alert('Vote berhasil! ' + response.message);
-                 $('.btn-vote').text('Sudah Memilih').prop('disabled', true);
+                    $('.btn-vote').text('Sudah Memilih').prop('disabled', true);
                         button.closest('.card').css('border', '3px solid var(--highlight)');
-                } else {
-             alert('Vote Gagal: ' + response.message);
-        $('.btn-vote').prop('disabled', false).text('Pilih');
+                } else {  
+                    alert('Vote Gagal: ' + response.message);
+                    $('.btn-vote').prop('disabled', false).text('Pilih');
                 }
             },
             error: function(xhr) {
-                alert('gagal');
+                alert('error');
                 $('.btn-vote').prop('disabled', false).text('Pilih');
             }
         });

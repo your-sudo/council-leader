@@ -17,8 +17,10 @@ class votingController extends Controller
     public function kandidat()
     {
         $paslon = Kandidat::all();
+        $user = Auth::user();
         return view('voting.dashboard', [
             'paslon' => $paslon,
+            'user' => $user,
         ]);
     }
 
@@ -27,18 +29,25 @@ class votingController extends Controller
      */
     public function submitVote(Request $request)
     {
+
         $user = Auth::user();
-        $uservote = $user->
+        $uservote = $user->vote_status;
         $request->validate([
             'kandidat_id' => 'required|integer|exists:kandidats,id',
+            'vote_status' => 'in:belum,sudah',
         ]);
 
-        if ($user->vote_status === 'belum') {
+        
+        $kandidat = Kandidat::find($request->kandidat_id);
+
+        if ($uservote === 'belum') {
             $kandidat->increment('jumlah_suara');
+            $request->user()->update(['vote_status' => 'sudah']);
             return response()->json([
             'success' => true,
             'message' => 'Suara Anda untuk ' . $kandidat->nama . ' telah berhasil dicatat!'
             ]);
+            
             } else {
 
             return response()->json([
@@ -49,7 +58,7 @@ class votingController extends Controller
         }
         
 
-        $kandidat = Kandidat::find($request->kandidat_id);
+        
         
         if (!$kandidat) {
             return response()->json(['success' => false, 'message' => 'Kandidat tidak ditemukan.'], 404);
