@@ -140,7 +140,7 @@
 
 <a href="/logout" class="nav-link">
                     <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span>
+                    <span>Logout</span>  </a>
 </header>
 <main>
   <div class="about fade-in" id="about">

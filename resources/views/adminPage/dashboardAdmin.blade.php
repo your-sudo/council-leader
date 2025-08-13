@@ -66,7 +66,9 @@
                 <div class="stat-header">
                     <div>
                         <div class="stat-title">Paslon unggul sementara</div>
-                        <div class="stat-value">Paslon {{$kandidatunggul -> id}}</div>
+
+                        
+                        <div class="stat-value">Paslon {{$kandidatunggul}}</div>
                         <div class="stat-change positive">Paslon yang sementara unggul</div>
                     </div>
                     <div class="stat-icon growth">

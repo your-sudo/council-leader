@@ -19,21 +19,31 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard',[votingController::class, 'kandidat'])->name('dashboard');
-    Route::get('/dashboardadmin', [adminController::class, 'dashboardadmin'])->name('dashboardadmin');
-    Route::post('/votesubmit', [votingController::class, 'submitVote'])->name('votesubmit');
-    Route::post('/logout', [loginController::class, 'logout'])->name('logout');
-    Route::get('/tambahkandidat', [adminController::class, 'tambahKandidatForm'])->name('tambahkandidat');
-     Route::get('/manajemenkandidat', [adminController::class, 'showManajemenKandidat'])->name('manajemenkandidat');
-    Route::post('/tambahkandidat', [adminController::class, 'tambahKandidat']);
-        Route::get('/logout', [loginController::class, 'logout'])->name('logout');
+    Route::post('/votesubmit', [votingController::class, 'submitVote'])->name('votesubmit');        Route::get('/logout', [loginController::class, 'logout'])->name('logout');
 
 });
 
+Route::middleware('admin')->group(function () {
+    Route::get('/dashboardadmin', [adminController::class, 'dashboardadmin'])->name('dashboardadmin');
+    Route::get('/tambahkandidat', [adminController::class, 'tambahKandidatForm'])->name('tambahkandidat');
+    Route::post('/tambahkandidat', [adminController::class, 'tambahKandidat']);
+         Route::get('/manajemenkandidat', [adminController::class, 'showManajemenKandidat'])->name('manajemenkandidat');
+
+});
+Route::post('/logout', [loginController::class, 'logout']);
+Route::get('/logout', [loginController::class, 'logout'])->name('logout');
+
 Route::get('/', function () {
-    if (auth()->check()) {
+    if (auth()->check() ) {
         return redirect()->route('dashboard');
+    }
+
+    elseif (admin()->check()) {
+        return redirect()->route('dashboardadmin');
     }
     return redirect()->route('login');
 });
+
+
 
 

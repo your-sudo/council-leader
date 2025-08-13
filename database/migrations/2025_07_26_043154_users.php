@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string ('password')->nullable();
             $table->enum ('role', ['admin', 'user'])->default('user');
             $table->string('nama_ibu');
+            $table->enum('vote_status', ['belum', 'sudah'])->default('belum');
             $table->timestamps();
 
         });

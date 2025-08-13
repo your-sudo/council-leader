@@ -58,6 +58,11 @@ class adminController extends Controller
         $jumlahsudahvote = \App\Models\Vote::whereNotNull('user_id')->count();
         $persentase = $jumlahsudahvote / $jumlahuser * 100;
         $kandidatunggul = Kandidat::orderBy('jumlah_suara', 'desc')->select('id')->first();
+        if (!empty($kandidatunggul)) {
+            $kandidatunggul = $kandidatunggul->id;
+        } else {
+            $kandidatunggul = 0;
+        }
 
         $paslonchart = Kandidat::orderBy('jumlah_suara', 'desc')->first();
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\voting;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Kandidat;
+use App\Models\Models\User;
 // It's good practice to import the Auth facade if you plan to use user-based voting
 use Illuminate\Support\Facades\Auth;
 
@@ -26,16 +27,27 @@ class votingController extends Controller
      */
     public function submitVote(Request $request)
     {
+        $user = Auth::user();
+        $uservote = $user->
         $request->validate([
             'kandidat_id' => 'required|integer|exists:kandidats,id',
         ]);
 
-        if ($request->session()->has('voted_paslon')) {
+        if ($user->vote_status === 'belum') {
+            $kandidat->increment('jumlah_suara');
+            return response()->json([
+            'success' => true,
+            'message' => 'Suara Anda untuk ' . $kandidat->nama . ' telah berhasil dicatat!'
+            ]);
+            } else {
+
             return response()->json([
                 'success' => false,
-                'message' => 'Anda sudah memberikan suara untuk pemilihan ini.'
-            ], 403); 
+                'message' => 'Anda sudah memberikan suara.'
+            ], 403); // 403 Forbidden
+        
         }
+        
 
         $kandidat = Kandidat::find($request->kandidat_id);
         
@@ -43,13 +55,10 @@ class votingController extends Controller
             return response()->json(['success' => false, 'message' => 'Kandidat tidak ditemukan.'], 404);
         }
 
-        $kandidat->increment('jumlah_suara');
         
-        $request->session()->put('voted_paslon', $kandidat->id);
+        
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Suara Anda untuk ' . $kandidat->nama . ' telah berhasil dicatat!'
-        ]);
+        
+        
     }
 }
