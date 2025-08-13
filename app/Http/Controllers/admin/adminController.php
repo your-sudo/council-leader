@@ -22,9 +22,11 @@ class adminController extends Controller
             'foto' => $fotoPath,
             'visi' => $request->visi,
             'misi' => $request->misi,
-            'jumlah_suara' => 0, // Default value
+            'jumlah_suara' => 0, 
         ]);
-        return redirect()->route('manajemenKandidat');
+
+        dd("Kandidat added successfully!");
+        return redirect()->route('manajemenkandidat');
 
     }
 
@@ -47,6 +49,7 @@ class adminController extends Controller
         $kandidat->misi = $request->misi;
         $kandidat->save();
 
+        dd("Kandidat updated successfully!");
         
     }
     public function dashboardadmin()

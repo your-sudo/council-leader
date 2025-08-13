@@ -24,7 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [loginController::class, 'logout'])->name('logout');
     Route::get('/tambahkandidat', [adminController::class, 'tambahKandidatForm'])->name('tambahkandidat');
      Route::get('/manajemenkandidat', [adminController::class, 'showManajemenKandidat'])->name('manajemenkandidat');
-    Route::post('/tambahkandidat', [adminController::class, 'tambahKandidat'])->name('tambahkandidatsubmit');
+    Route::post('/tambahkandidat', [adminController::class, 'tambahKandidat']);
         Route::get('/logout', [loginController::class, 'logout'])->name('logout');
 
 });
