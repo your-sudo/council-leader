@@ -21,41 +21,24 @@
         </div>
         <nav class="sidebar-nav">
             <div class="nav-item">
-                <a href="{{ route('dashboardadmin') }}" class="nav-link " data-nama="dashboard">
+                <a href="{{ route('dashboardadmin') }}" class="nav-link {{ request()->is('dashboardadmin') ? 'active' : '' }} " data-nama="dashboard">
                     <i class="fas fa-home"></i>
                     <span>Dashboard</span>
                 </a>
             </div>
             <div class="nav-item">
-                <a href="{{ route('manajemenkandidat') }}" class="nav-link" data-nama="manajemenKandidat">
-                    <i class="fas fa-users"></i>
+                <a href="{{ route('manajemenkandidat') }}" class="nav-link {{ request()->is('manajemenkandidat') ? 'active' : '' }}" data-nama="manajemenKandidat">
+                    <i class="fa-solid fa-user-tie"></i>
                     <span>Kandidat</span>
                 </a>
             </div>
             <div class="nav-item">
-                <a href="{{ route('manajemenSiswa') }}" class="nav-link" data-nama="manajemenSiswa">
+                <a href="{{ route('manajemenSiswa') }}" class="nav-link {{ request()->is('manajemenSiswa') ? 'active' : '' }}" data-nama="manajemenSiswa">
                     <i class="fas fa-users"></i>
                     <span>Siswa</span>
                 </a>
             </div>
-            <div class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="fas fa-box"></i>
-                    <span>Products</span>
-                </a>
-            </div>
-            <div class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="fas fa-chart-bar"></i>
-                    <span>Analytics</span>
-                </a>
-            </div>
-            <div class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="fas fa-cog"></i>
-                    <span>Settings</span>
-                </a>
-            </div>
+            
             <div class="nav-item">
                 <a href="/logout" class="nav-link">
                     <i class="fas fa-sign-out-alt"></i>

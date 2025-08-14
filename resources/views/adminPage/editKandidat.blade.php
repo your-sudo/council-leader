@@ -54,6 +54,18 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="proker">Program Kerja</label>
+                    <textarea id="proker"
+                              name="program_kerja"
+                              class="form-control"
+                              rows="5"
+                              required>
+                            {{$kandidat->program_kerja}}
+                            </textarea>
+                </div>
+                            
+
+                <div class="form-group">
                     <label for="foto">Update Foto Kandidat</label>
                     <input type="file"
                            id="foto"

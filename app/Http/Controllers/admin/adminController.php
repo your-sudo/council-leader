@@ -14,6 +14,7 @@ class adminController extends Controller
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5200',
             'visi' => 'required|string|max:1000',
             'misi' => 'required|string|max:1000',
+            'program_kerja' => 'required|string|max:1000',
 
         ]);
         $fotoPath = $request->file('foto')->store('kandidat', 'public');
@@ -22,7 +23,8 @@ class adminController extends Controller
             'foto' => $fotoPath,
             'visi' => $request->visi,
             'misi' => $request->misi,
-            'jumlah_suara' => 0, 
+            'program_kerja' => $request->program_kerja,
+            'jumlah_suara' => 0,
         ]);
 
         return redirect()->route('manajemenkandidat');
@@ -52,6 +54,7 @@ public function deletePaslon($id)
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5200',
             'visi' => 'required|string|max:1000',
             'misi' => 'required|string|max:1000',
+            'program_kerja' => 'required|string|max:1000',
         ]);
 
         if ($request->hasFile('foto')) {
@@ -62,6 +65,8 @@ public function deletePaslon($id)
         $kandidat->nama = $request->nama;
         $kandidat->visi = $request->visi;
         $kandidat->misi = $request->misi;
+        $kandidat->jumlah_suara = $kandidat->jumlah_suara;
+        $kandidat->program_kerja = $request->program_kerja;
         $kandidat->save();
 
         dd("Kandidat updated successfully!");

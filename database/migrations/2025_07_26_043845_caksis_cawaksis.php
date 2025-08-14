@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama');
             $table->text('visi');
             $table->text('misi');
+            $table->text('program_kerja');
             $table->string('foto')->nullable();
             $table->integer('jumlah_suara')->default(0);
             $table->timestamps();
