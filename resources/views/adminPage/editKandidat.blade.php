@@ -9,13 +9,13 @@
                     id="menuToggle">
                 <i class="fas fa-bars"></i>
             </button>
-            <h1 class="header-title">Tambah Kandidat</h1>
+            <h1 class="header-title">Edit Kandidat</h1>
         </div>
     </header>
 
     <div class="dashboard-content">
         <div class="form-card fade-in">
-            <form action="{{ route('editkandidat') }}"
+            <form action="{{ route('editKandidat', $kandidat->id) }}"
             method="POST" 
             enctype="multipart/form-data">
                 @csrf
@@ -25,9 +25,9 @@
                            id="nama"
                            name="nama"
                            class="form-control"
-                           required> 
-                           {{kandidat->nama}}
-                           </input
+                           value="{{$kandidat->nama}}"
+                           required>
+                    </input>
                 </div>
                 @vite('resources/css/kandidat.css')
                 
@@ -38,9 +38,8 @@
                               name="visi"
                               class="form-control"
                               rows="3"
-                              required>
-                            {{kandidat->visi}}
-                            </textarea>
+                              required
+                              >{{$kandidat->visi}}</textarea>
                 </div>
 
                 <div class="form-group">
@@ -50,7 +49,7 @@
                               class="form-control"
                               rows="4"
                               required>
-                            {{kandidat->misi}}
+                            {{$kandidat->misi}}
                             </textarea>
                 </div>
 
@@ -59,8 +58,7 @@
                     <input type="file"
                            id="foto"
                            name="foto"
-                           class="form-control-file"
-                           required>
+                           class="form-control-file">
                 </div>
 
                 <button type="submit"

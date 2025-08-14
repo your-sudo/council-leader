@@ -33,9 +33,9 @@
                 </a>
             </div>
             <div class="nav-item">
-                <a href="#" class="nav-link" data-nama=>
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>Orders</span>
+                <a href="{{ route('manajemenSiswa') }}" class="nav-link" data-nama="manajemenSiswa">
+                    <i class="fas fa-users"></i>
+                    <span>Siswa</span>
                 </a>
             </div>
             <div class="nav-item">

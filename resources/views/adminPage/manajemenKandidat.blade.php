@@ -168,24 +168,22 @@
     <div class="cards">
       @forelse ($paslon as $kandidat)
         <div class="card">
-          <div class="img" style="background-image: url('{{ asset($kandidat->foto) }}');"></div>
+          <div class="img" style="background-image: url('{{ asset("storage/" . $kandidat->foto) }}');"></div>
           <div class="card-body">
             <div class="card-title">{{ $kandidat->nama }}</div>
             <button class="btn-toggle">Lihat Visi/Misi & Proker</button>
             <div class="details">
               <p><strong>Visi:</strong> {{ $kandidat->visi }}</p>
               <p><strong>Misi:</strong> {{ $kandidat->misi }}</p>
-              {{-- You can add the program kerja here --}}
               <p><strong>Program Kerja:</strong> {{ $kandidat->proker ?? 'Belum ada data.' }}</p>
             </div>
-            {{-- Unified button class for easier selection in JS --}}
             <table border="0">
                 <tr>
                     <td>
-                <a  class="btn-edit" data-paslonid="{{ $kandidat->id }}">Edit
+                <a  class="btn-edit" data-paslonid="{{ $kandidat->id }}" href="{{ route('editKandidat', $kandidat->id) }}">Edit</a>
                 </td>
                 <td>
-               <a  class="btn-edit" data-paslonid="{{ $kandidat->id }}">Hapus                </td>
+               <a  class="btn-edit" data-paslonid="{{ $kandidat->id }}" href="{{ route('hapusKandidat', $kandidat->id) }}">Hapus</a>                </td>
             </tr>
             </table>
             

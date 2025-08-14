@@ -19,7 +19,9 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard',[votingController::class, 'kandidat'])->name('dashboard');
-    Route::post('/votesubmit', [votingController::class, 'submitVote'])->name('votesubmit');        Route::get('/logout', [loginController::class, 'logout'])->name('logout');
+    Route::post('/votesubmit', [votingController::class, 'submitVote'])->name('votesubmit');      
+      Route::get('/logout', [loginController::class, 'logout'])->name('logout');
+
 
 });
 
@@ -27,7 +29,12 @@ Route::middleware('admin')->group(function () {
     Route::get('/dashboardadmin', [adminController::class, 'dashboardadmin'])->name('dashboardadmin');
     Route::get('/tambahkandidat', [adminController::class, 'tambahKandidatForm'])->name('tambahkandidat');
     Route::post('/tambahkandidat', [adminController::class, 'tambahKandidat']);
-         Route::get('/manajemenkandidat', [adminController::class, 'showManajemenKandidat'])->name('manajemenkandidat');
+    Route::get('/manajemenkandidat', [adminController::class, 'showManajemenKandidat'])->name('manajemenkandidat');
+    Route::get('/manajemenSiswa', [adminController::class, 'showManajemenSiswa'])->name('manajemenSiswa');
+    Route::get('/hapusKandidat/{id}', [adminController::class, 'deletePaslon'])->name('hapusKandidat');
+    Route::get('/editKandidat/{id}', [adminController::class, 'showEditKandidatForm'])->name('editKandidat');
+    Route::post('/editKandidat/{id}', [adminController::class, 'editKandidat']);
+    Route::get('/manajemenSiswa', [adminController::class, 'showManajemenSiswa'])->name('manajemenSiswa');
 
 });
 Route::post('/logout', [loginController::class, 'logout']);

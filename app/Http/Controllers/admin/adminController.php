@@ -25,10 +25,25 @@ class adminController extends Controller
             'jumlah_suara' => 0, 
         ]);
 
-        dd("Kandidat added successfully!");
         return redirect()->route('manajemenkandidat');
 
     }
+
+public function showManajemenSiswa()
+{
+    $siswa = \App\Models\User::all();
+    return view('adminPage.manajemenSiswa', [
+        'siswa' => $siswa,
+    ]);
+}
+
+public function deletePaslon($id)
+{
+    $kandidat = Kandidat::findOrFail($id);
+    $kandidat->delete();
+
+    return redirect()->route('manajemenkandidat')->with('success', 'Kandidat deleted successfully!');
+}
 
     public function editKandidat(Request $request, $id) {
         $kandidat = Kandidat::findOrFail($id);
@@ -52,6 +67,15 @@ class adminController extends Controller
         dd("Kandidat updated successfully!");
         
     }
+    public function showEditKandidatForm($id)
+    {
+        $kandidat = Kandidat::findOrFail($id);
+        return view('adminPage.editKandidat', [
+            'kandidat' => $kandidat,
+        ]);
+    }
+
+
     public function dashboardadmin()
     {
         $jumlahuser = \App\Models\User::count();

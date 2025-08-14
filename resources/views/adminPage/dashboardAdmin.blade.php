@@ -12,13 +12,7 @@
             <h1 class="header-title">Dashboard</h1>
         </div>
         <div class="header-actions">
-            <button class="notification-btn">
-                <i class="fas fa-bell"></i>
-                <span class="notification-badge">3</span>
-            </button>
-            <div class="user-avatar">
-                JD
-            </div>
+
         </div>
     </header>
 
@@ -81,11 +75,11 @@
         <!-- Chart -->
         <div class="chart-container slide-in-left">
             <div class="chart-header">
-                <h3 class="chart-title">Revenue Overview</h3>
-                <p class="chart-subtitle">Monthly revenue trends for the current year</p>
+                <h3 class="chart-title">Statistik Paslon</h3>
+                <p class="chart-subtitle">Statistik paslon unggul sementara</p>
             </div>
             <div class="chart-placeholder">
-                <i class="fas fa-chart-area" style="font-size: 3rem; margin-right: 1rem;"></i>
+                
                  <canvas id="voteChart"></canvas>
             </div>
         </div>
