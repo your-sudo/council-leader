@@ -15,7 +15,7 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ffffffff 0%, #5bb8bfff 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -71,7 +71,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, #00bcd4, #26c6da);
+            background: linear-gradient(90deg, #00bcd4, #2da0a8);
             transition: width 0.4s ease;
         }
 
@@ -268,7 +268,7 @@
                 <div class="form-group">
                     <label class="form-label" for="fullName">Nama Lengkap</label>
                     <div class="input-group">
-                        <input type="text" id="fullName" class="form-input" placeholder="Masukkan nama lengkap Anda" name="nama" value="{{ old('nama') }}" required>
+                        <input type="text" id="fullName" class="form-input" placeholder="Gunakan _ sebagai penghubung spasi" name="nama" value="{{ old('nama') }}" required>
                         <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                     </div>
                 </div>

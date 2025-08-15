@@ -42,13 +42,14 @@ Route::get('/logout', [loginController::class, 'logout'])->name('logout');
 
 Route::get('/', function () {
     if (auth()->check() ) {
-        return redirect()->route('dashboard');
-    }
-
-    elseif (admin()->check()) {
-        return redirect()->route('dashboardadmin');
+        if (auth()->user()->role === 'admin') {
+            return redirect()->route('dashboardadmin');
+        } else {
+            return redirect()->route('dashboard');
+        }
     }
     return redirect()->route('login');
+
 });
 
 

@@ -13,6 +13,7 @@ export default defineConfig({
                 'resources/js/admin.js',
                 'resources/css/admin.css',
                 'resources/css/kandidat.css',
+                'resources/css/siswa.css',
             ],
             refresh: true,
         }),

@@ -33,7 +33,7 @@ class adminController extends Controller
 
 public function showManajemenSiswa()
 {
-    $siswa = \App\Models\User::all();
+    $siswa = User::all();
     return view('adminPage.manajemenSiswa', [
         'siswa' => $siswa,
     ]);
