@@ -9,10 +9,10 @@
                     id="menuToggle">
                 <i class="fas fa-bars"></i>
             </button>
-            <h1 class="header-title">Tambah Kandidat</h1>
+            <h1 class="header-title">Manajemen Kandidat</h1>
         </div>
         <div style="display: flex; align-items:right; gap: 1rem;">
-        <a href="{{ route('tambahkandidat') }}">
+        <a href="{{ route('tambahkandidat') }}" class="btn-add">
                     <span>Tambah Kandidat</span>
                 </a>   
       </div>
@@ -22,7 +22,7 @@
           <style>
     :root {
       --primary: #484361;
-      --highlight: #EC9F1D;
+      --highlight:#EC9F1D;
       --accent: #761B16;
       --dark: #320F09;
       --bg: #f5f2ee;
@@ -32,6 +32,21 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body { font-family:'Segoe UI',sans-serif; background:var(--bg); color:var(--text); }
     header { background:var(--primary); color:var(--white); padding:1rem; text-align:center; font-size:1.5rem; }
+
+.btn-add {
+    padding: 0.7rem 1rem;
+    background: var(--highlight);
+    color: var(--dark);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, opacity 0.3s ease;
+}
+
+.btn-add:hover {
+    background: var(--accent);
+    color: var(--white);
+}
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -105,40 +120,35 @@
       font-size:.9rem;
       color:var(--accent);
     }
-    .btn-edit {
-      margin-top:1rem;
-      padding:.7rem;
-      background:var(--highlight);
-      color:var(--dark);
-      border:none;
-      border-radius:6px;
-      cursor:pointer;
-      transition: background .3s ease, opacity .3s ease;
-    }
-    .btn-edit:hover { background:var(--accent); color:var(--white); }
-    .btn-edit:disabled {
-        background: #ccc;
-        color: #666;
-        cursor: not-allowed;
-        opacity: 0.7;
-    }
- .btn-delete {
-      margin-top:1rem;
-      padding:.7rem;
-      background:var(--highlight);
-      color:var(--dark);
-      border:none;
-      border-radius:6px;
-      cursor:pointer;
-      transition: background .3s ease, opacity .3s ease;
-    }
-    .btn-delete:hover { background:var(--accent); color:var(--white); }
-    .btn-delete:disabled {
-        background: #ccc;
-        color: #666;
-        cursor: not-allowed;
-        opacity: 0.7;
-    }
+.btn-edit,
+.btn-delete {
+    display: inline-block; /* biar berdampingan */
+    margin: 0.3rem 0.1rem 0.3rem 0; /* jarak antar tombol lebih rapat */
+    padding: 0.7rem 1rem;
+    background: var(--highlight);
+    color: var(--dark);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, opacity 0.3s ease;
+    text-align: center;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+    background: var(--accent);
+    color: var(--white);
+}
+
+.btn-edit:disabled,
+.btn-delete:disabled {
+    background: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+
 
     footer {
       background:var(--primary);

@@ -13,7 +13,7 @@ class Kandidat extends Model
         'nama',
         'visi',
         'misi',
-        'programkerja',
+        'program_kerja',
         'foto',
         'calon_jabatan',
     ];

@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -46,12 +45,12 @@
       <div class="toggle-container">
         <div class="toggle">
           <div class="toggle-panel toggle-left">
-            <h1>Hallo, Smenzavers!</h1>
+            <h1>Hai, There!</h1>
             <p>Login untuk memilih caksis dan cawaksis SMK Negeri 1 Kebumen</p>
             <button class="hidden" id="login">Log In</button>
           </div>
           <div class="toggle-panel toggle-right">
-            <h1>Hallo, Smenzavers!</h1>
+            <h1>Hai, There!</h1>
             <p>Buat password untuk memilih caksis dan cawaksis SMK Negeri 1 Kebumen</p>
             <button class="hidden" id="register2">Buat Password</button>
           </div>

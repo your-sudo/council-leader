@@ -68,8 +68,6 @@ public function deletePaslon($id)
         $kandidat->jumlah_suara = $kandidat->jumlah_suara;
         $kandidat->program_kerja = $request->program_kerja;
         $kandidat->save();
-
-        dd("Kandidat updated successfully!");
         
     }
     public function showEditKandidatForm($id)
