@@ -10,6 +10,7 @@ services:
       - "8888:8000"
     volumes:
       - .:/var/www
+      
     environment:
       APP_NAME: ${APP_NAME:-Laravel}
       APP_ENV: ${APP_ENV:-local}
